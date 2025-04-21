@@ -13,13 +13,13 @@
       --button-hover: #444;
       --text: #111;
     }
-
+  
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
+  
     body {
       font-family: 'Outfit', sans-serif;
       background: var(--bg-gradient);
@@ -30,19 +30,19 @@
       justify-content: center;
       align-items: center;
     }
-
+  
     header {
       text-align: center;
       margin-top: 50px;
     }
-
+  
     header h1 {
       font-size: 3rem;
       font-weight: 700;
       color: #ff4c4c;
       margin-bottom: 20px;
     }
-
+  
     .form-container {
       max-width: 600px;
       padding: 30px;
@@ -52,13 +52,13 @@
       text-align: center;
       margin-top: 40px;
     }
-
+  
     .form-container h2 {
       font-size: 2rem;
       margin-bottom: 20px;
       font-weight: 500;
     }
-
+  
     .form-container iframe {
       width: 100%;
       height: 500px;
@@ -66,7 +66,7 @@
       border-radius: 10px;
       background-color: #f0f0f0;
     }
-
+  
     .back-button {
       display: inline-block;
       margin-top: 20px;
@@ -78,11 +78,11 @@
       font-weight: 500;
       transition: 0.3s ease;
     }
-
+  
     .back-button:hover {
       background-color: var(--button-hover);
     }
-
+  
     footer {
       text-align: center;
       padding: 30px;
@@ -90,7 +90,23 @@
       color: #444;
       margin-top: auto;
     }
+  
+    /* Media Query para pantallas pequeñas */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem; /* Ajusta el tamaño de la fuente */
+      }
+  
+      .form-container h2 {
+        font-size: 1.5rem; /* Ajusta el tamaño del subtítulo */
+      }
+  
+      .form-container iframe {
+        height: 400px; /* Ajusta la altura del iframe en dispositivos móviles */
+      }
+    }
   </style>
+  
 </head>
 <body>
 

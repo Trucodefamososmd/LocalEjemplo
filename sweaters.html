@@ -161,6 +161,18 @@
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
     }
+
+    /* Responsive para celulares */
+    @media (max-width: 600px) {
+      .products {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .product {
+        padding: 15px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -214,7 +226,6 @@
       document.getElementById('modal').style.display = 'none';
     }
 
-    // Cerrar modal con ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeModal();
     });

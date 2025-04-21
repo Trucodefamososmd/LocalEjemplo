@@ -12,7 +12,7 @@
       --button-text: #fff;
       --button-hover: #444;
       --text: #111;
-      --old-price-color: red; /* Color para los precios antiguos */
+      --old-price-color: red;
     }
 
     * {
@@ -100,7 +100,7 @@
 
     .old-price {
       text-decoration: line-through;
-      color: var(--old-price-color); /* Precios antiguos en rojo */
+      color: var(--old-price-color);
       font-size: 1rem;
     }
 
@@ -112,7 +112,6 @@
       margin-top: auto;
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -157,7 +156,7 @@
 
     .modal-content .old-price {
       text-decoration: line-through;
-      color: var(--old-price-color); /* Precio tachado en rojo */
+      color: var(--old-price-color);
       font-size: 1.2rem;
     }
 
@@ -204,7 +203,6 @@
     </div>
   </section>
 
-  <!-- Modal -->
   <div class="modal" id="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">×</span>
@@ -224,7 +222,7 @@
       const [oldPrice, newPrice] = price.split('ahora');
       document.getElementById('modal-img').src = img;
       document.getElementById('modal-title').textContent = title;
-      document.getElementById('modal-old-price').textContent = ` ${oldPrice.trim()}`;
+      document.getElementById('modal-old-price').textContent = oldPrice.trim();
       document.getElementById('modal-price').textContent = `Ahora ${newPrice.trim()}`;
       document.getElementById('modal').style.display = 'flex';
     }
