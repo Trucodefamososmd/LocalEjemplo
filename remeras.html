@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Remeras - Tienda Ejemplo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #fff3e6, #ffe0e0);
+      --button-bg: #000;
+      --button-text: #fff;
+      --button-hover: #444;
+      --text: #111;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 50px 20px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: var(--button-hover);
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .product {
+      background-color: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .product h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .product p {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #444;
+      margin-top: auto;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 99;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      max-height: 400px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .modal-content h2 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .modal-content p {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      color: #555;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Remeras</h1>
+    <a href="index.html" class="back-button">← Volver al inicio</a>
+  </header>
+
+  <section class="products">
+    <div class="product" onclick="openModal('remeras/negra.png', 'Remera negra básica', '$15.000')">
+      <img src="remeras/negra.png" alt="Remera negra básica">
+      <h2>Remera negra básica</h2>
+      <p>$15.000</p>
+    </div>
+    <div class="product" onclick="openModal('remeras/blanca.png', 'Remera blanca básica', '$15.000')">
+      <img src="remeras/blanca.png" alt="Remera blanca básica">
+      <h2>Remera blanca básica</h2>
+      <p>$15.000</p>
+    </div>
+    <div class="product" onclick="openModal('remeras/rojo.png', 'Remera rojo fuerte', '$17.000')">
+      <img src="remeras/rojo.png" alt="Remera rojo fuerte">
+      <h2>Remera rojo fuerte</h2>
+      <p>$17.000</p>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <img id="modal-img" src="" alt="">
+      <h2 id="modal-title"></h2>
+      <p id="modal-price"></p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Tienda Ejemplo · Todos los derechos reservados
+  </footer>
+
+  <script>
+    function openModal(img, title, price) {
+      document.getElementById('modal-img').src = img;
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-price').textContent = price;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+
+</body>
+</html>

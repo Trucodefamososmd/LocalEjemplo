@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tienda Ejemplo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #fff3e6, #ffe0e0);
+      --button-bg: #000;
+      --button-text: #fff;
+      --button-hover: #444;
+      --text: #111;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 60px 20px 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 25px;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      width: 100%;
+    }
+
+    .nav-button {
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      text-align: center;
+      padding: 16px;
+      font-size: 1.1rem;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .nav-button:hover {
+      background-color: var(--button-hover);
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #444;
+      margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Tienda Ejemplo</h1>
+  </header>
+
+  <nav>
+    <a href="remeras.html" class="nav-button">Remeras</a>
+    <a href="sweaters.html" class="nav-button">Sweaters</a>
+    <a href="buzos.html" class="nav-button">Buzos</a>
+    <a href="pantalones.html" class="nav-button">Pantalones</a>
+    <a href="accesorios.html" class="nav-button">Accesorios</a>
+    <a href="ofertas.html" class="nav-button">Ofertas</a>
+    <a href="camperas.html" class="nav-button">Camperas</a>
+    <a href="calzado.html" class="nav-button">Calzado</a>
+    <a href="nuevos.html" class="nav-button">Nuevos Ingresos</a>
+    <a href="edicion.html" class="nav-button">Edición Limitada</a>
+  </nav>
+
+
+  <footer>
+    &copy; 2025 Tienda Ejemplo · Todos los derechos reservados
+  </footer>
+
+</body>
+</html>
